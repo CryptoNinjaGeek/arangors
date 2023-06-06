@@ -14,7 +14,7 @@ pub struct CreateDatabaseOptions {
     /// Valid values are: “”, “flexible”, or “single”. The first two are equivalent
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default, setter(strip_option))]
-    sharding: Option<String>,
+    pub sharding: Option<String>,
 
     /// (The default is 1): in a cluster, this attribute determines how many
     /// copies of each shard are kept on different DB-Servers. The value 1 means
@@ -32,7 +32,7 @@ pub struct CreateDatabaseOptions {
     /// holding copies take over, usually without an error being reported.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default, setter(strip_option))]
-    replication_factor: Option<usize>,
+    pub replication_factor: Option<usize>,
 
     /// Write concern for this collection (default: 1).
     ///
@@ -43,7 +43,7 @@ pub struct CreateDatabaseOptions {
     /// writeConcern can not be larger than replicationFactor. (cluster only)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default, setter(strip_option))]
-    write_concern: Option<usize>,
+    pub write_concern: Option<usize>,
 }
 
 #[derive(Serialize, PartialEq, TypedBuilder)]
